@@ -57,6 +57,13 @@ background-color: rgb(5, 46, 104);
     color:rgb(5, 46, 104);
     border: 2px solid rgb(5, 46, 104);
 }
+#Hph{
+    display: block;
+    text-align: center;
+    position: relative;
+    right: 55px;
+    font-size: 20px;
+}
 #An{
     box-shadow: 0px 0px 3px 3px white; 
     background-color: rgb(167, 222, 230);
