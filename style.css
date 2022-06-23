@@ -4,6 +4,20 @@ body{
 #Hdiv{
     padding-top: 45px;
 }
+#cont1{
+text-align: center;
+margin-top: 28px;
+font-size: 21px;
+color: blue;
+direction: rtl;
+}
+#cont2{
+    text-align: center;
+    margin-top: 28px;
+    font-size: 21px;
+    color: black;
+    direction: rtl;
+}
 #Pdr{
     position: relative;
 top: 90px;
