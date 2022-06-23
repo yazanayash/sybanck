@@ -54,7 +54,7 @@ a8.style.color="rgb(5, 46, 104)";
 function t3(){
 ti.innerHTML="القرض التعليمي";
 cont.innerHTML="ندرك بأن التعليم لابد وأن يكون متاحاً للجميع، لهذا تم تصميم تمويل التعليم لدينا من أجل أن يخفف الضغوط عن كاهل الوالدين. كما نقدم التمويل لمختلف المراحل الدراسية الإبتدائية والإعدادية والثانوية والتعليم الجامعي أيضاً<BR>نسبة الفائدة %10";
-cont2.innerHTML="مبلغ تمويل يصل إلى 250 ألف درهم.<BR>معدلات ربح تنافسية.<BR>خطة سداد مرنةإعفاء 100% من رسوم الإعداد";
+cont2.innerHTML="مبلغ تمويل يصل إلى 250 ألف درهم.<BR>معدلات ربح تنافسية.<BR>خطة سداد مرنة<br>إعفاء 100% من رسوم الإعداد";
 a3.style.backgroundColor="rgb(5, 46, 104)";
 a3.style.color="rgb(167, 222, 230)";
 a2.style.backgroundColor="rgb(202, 215, 235)";
@@ -157,7 +157,7 @@ function t4(){
                 a8.style.color="rgb(5, 46, 104)";
                 }
                 function t8(){
-                    ti.innerHTML="فرض الورشات";
+                    ti.innerHTML="قرض الورشات";
                     cont.innerHTML="يعد هذا القطاع من القطاعات الواعدة في السلطنة ومصدرا مهما لتنويع مصادر الدخل القومي، و تماشيا مع هذه السياسة يعمل البنك على المساهمة في تنمية هذا القطاع من خلال منح قروض لتمويل المشاريع المتنوعة التي تقع ضمن نطاق هذا القطاع.<BR>نسبة الفائدة %14";
                     cont2.innerHTML="سرعة في الحصول على الموافقات وإتمام الإجراءات<BR>نسب ربح تنافسية<BR>تمويل بقيم مرتفعة<BR>مدد وخطط سداد مرنة";
                     a8.style.backgroundColor="rgb(5, 46, 104)";
@@ -227,12 +227,62 @@ function t4(){
                                            var g = alpha[Math.floor(Math.random() * alpha.length)];
                                           }
                                         var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
-                                        document.getElementById("mainCaptcha").kml = code
-                    
-                    
-                    
-                    
+                                        document.getElementById("mainCaptcha").kml = code;
                                         draw(code);
+                                     }
+                                     function removeSpaces(string){
+                                      return string.split(' ').join('');
+                                    }
+                                     var ch6=false;
+                                     function oc6(){
+                                     var loa1= document.getElementById("loa").value;
+                                     if(loa1<1000000||loa1>10000000)
+                                     {
+                                      alert("عذراً قيمة القروض المقدمة تتراوح من المليون وحتى العشرة مليون");
+                                      document.getElementById("loa").style.backgroundColor="red";
+                                     }else{
+                                      ch6=true;
+                                      document.getElementById("loa").style.backgroundColor="white";
+                                     }
+                                     }
+                                     var ch5=false;
+                                     function oc5(){
+                                      var em=document.getElementById("em").value;
+                                      var re1=em.search(/[@]/);
+                                      var re2=em.search(/[.]/);
+                                      if(re1==-1||re2==-1){
+                                        alert("يجب ان يحتوي الايميل على علامة (@) وعلامة(.)");
+                                        document.getElementById("em").style.backgroundColor="red";
+                                      }
+                                      else{
+                                        document.getElementById("em").style.backgroundColor="white";
+                                        ch5=true;
+                                      }
+                                     }
+                                     var ch4=false;
+                                     function oc4(){
+                                      var bd=document.getElementById("bd").value;
+                                      if(bd<8||bd>10){
+                                        alert("تاريخ الولادة غير صالح يجب كتابة التاريخ بالصيغة التالية 1999-01-01");
+                                        document.getElementById("bd").style.backgroundColor="red";
+                                      }else{
+                                        if(bd[2]=='-'&&bd[5]=='-')
+                                        {
+
+                                        if(bd[0]+bd[1]<32&&bd[3]+bd[4]<13&&bd[6]+bd[7]+bd[8]+bd[9]<9999)
+                                        {
+                                          ch4=true; 
+                                          document.getElementById("bd").style.backgroundColor="white";
+                                        }else{
+                                          alert("تاريخ الولادة غير صالح ");
+                                          document.getElementById("bd").style.backgroundColor="red";
+                                        }
+
+                                        }else{
+                                          alert("تاريخ الولادة غير صالح يجب كتابة التاريخ بالصيغة التالية 1999-01-01");
+                                          document.getElementById("bd").style.backgroundColor="red";
+                                        }
+                                      }
                                      }
                                         var ch3=false;
                                         function oc3(){
@@ -305,7 +355,7 @@ function t4(){
 
                                       if(fn!=""&&iid!=""&&bd!=""&&pn!=""&&em!=""&&loa!=""&&string2!="")
                                       {    
-                                          if(ch1&&ch2&&ch3){
+                                          if(ch1&&ch2&&ch3&&ch4&&ch5&&ch6){
                                             var string1 = removeSpaces(document.getElementById('mainCaptcha').kml);
                                             localStorage.setItem("name",fn);
                                             localStorage.setItem("iid",iid);
@@ -323,7 +373,6 @@ function t4(){
                                             else
                                             {
                                                 alert("الرجاء ادخال رمز التحقق بشكل صحيح");
-
                                             }
                                           }
                                           else
@@ -386,6 +435,4 @@ function t4(){
                                       document.getElementById("Rsum").innerHTML=res+" مع الفائدة";
                                       //localStorage.clear();
                                     }
-                                      function removeSpaces(string){
-                                        return string.split(' ').join('');
-                                      }
+                                      
